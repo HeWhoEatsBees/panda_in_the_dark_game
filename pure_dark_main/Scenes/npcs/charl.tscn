@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://4xikyc4lmbot"]
+
+[ext_resource type="Texture2D" uid="uid://bmvpedyoibxvy" path="res://pure_dark_main/Assets/characters/Enemies/Samurai/Sci-fi Samurai with Sword 124x49.png" id="1_gfe5v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsb40"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(0, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbwcd"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(124, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hppn8"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(248, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrqan"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(372, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s5mp"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(496, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fgv7"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(620, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj04h"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(744, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhau7"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(868, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv5in"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(992, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4a8d"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(1116, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk22j"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(1240, 0, 124, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r2fv"]
+atlas = ExtResource("1_gfe5v")
+region = Rect2(1364, 0, 124, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8encu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsb40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbwcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hppn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrqan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s5mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fgv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj04h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhau7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv5in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4a8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk22j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r2fv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Charl" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8encu")
+autoplay = "default"
+frame_progress = 0.875722
