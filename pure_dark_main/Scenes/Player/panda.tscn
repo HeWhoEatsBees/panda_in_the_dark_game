@@ -1,7 +1,8 @@
-[gd_scene load_steps=95 format=3 uid="uid://djaydpitupy0v"]
+[gd_scene load_steps=97 format=3 uid="uid://djaydpitupy0v"]
 
 [ext_resource type="Script" path="res://pure_dark_main/Scripts/panda.gd" id="1_hyx2b"]
 [ext_resource type="Texture2D" uid="uid://b1t6yqgxuwjyr" path="res://pure_dark_main/Assets/characters/Enemies/Pandas/Tiny Panda Good Version/Tiny Panda Good Version 103x33.png" id="2_gtlju"]
+[ext_resource type="PackedScene" uid="uid://bechm50rn420k" path="res://pure_dark_main/Scenes/Menus/pause_menu.tscn" id="3_fvw6j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3r8u"]
 atlas = ExtResource("2_gtlju")
@@ -692,6 +693,20 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.846626, 0.144172)
 
+[sub_resource type="GDScript" id="GDScript_lisq0"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="panda" type="CharacterBody2D"]
 script = ExtResource("1_hyx2b")
 
@@ -711,5 +726,17 @@ blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2cpmx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -48)
+zoom = Vector2(5, 5)
+script = SubResource("GDScript_lisq0")
+
+[node name="pause_menu" parent="Camera2D" instance=ExtResource("3_fvw6j")]
+offset_left = -51.0
+offset_top = -43.0
+offset_right = -51.0
+offset_bottom = -43.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="animations" to="." method="_on_animations_animation_finished"]
