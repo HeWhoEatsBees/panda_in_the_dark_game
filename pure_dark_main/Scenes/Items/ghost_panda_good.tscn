@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://cdmfqdg21rml7"]
+
+[ext_resource type="Texture2D" uid="uid://c1acvfffjjgvp" path="res://pure_dark_main/Assets/characters/Enemies/Pandas/Tiny Panda Good Version/Tiny Panda-Idle.png" id="1_jknn4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bi41s"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jigjg"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(0, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwxm3"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(103, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2201"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(206, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3y3u"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(309, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wucx"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(412, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx1ta"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(515, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqjkx"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(618, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjjls"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(721, 0, 103, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsvs"]
+atlas = ExtResource("1_jknn4")
+region = Rect2(824, 0, 103, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lkntk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jigjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwxm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2201")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3y3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wucx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx1ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqjkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjjls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsvs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="ghost_panda_good" type="AnimatedSprite2D"]
+light_mask = 2
+visibility_layer = 2
+z_index = 7
+material = SubResource("CanvasItemMaterial_bi41s")
+position = Vector2(228, -15)
+sprite_frames = SubResource("SpriteFrames_lkntk")
+autoplay = "default"

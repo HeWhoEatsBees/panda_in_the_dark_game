@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://5x6k1y2b7i6j"]
+
+[ext_resource type="Texture2D" uid="uid://ciyqb5ka2phd2" path="res://pure_dark_main/Assets/items/Torch/Torch 16x16.png" id="1_s5qr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohl3e"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxsho"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c47li"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmu8i"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uij5l"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khhdw"]
+atlas = ExtResource("1_s5qr7")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chmhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohl3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxsho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c47li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmu8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uij5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khhdw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_cgi6t"]
+offsets = PackedFloat32Array(0, 0.973913)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0jdg"]
+gradient = SubResource("Gradient_cgi6t")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.760736, 0.248466)
+
+[node name="torch" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_chmhf")
+autoplay = "default"
+frame_progress = 0.269188
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 1, 1, 1)
+texture = SubResource("GradientTexture2D_s0jdg")
