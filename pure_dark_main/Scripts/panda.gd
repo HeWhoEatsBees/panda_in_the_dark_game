@@ -8,12 +8,11 @@ enum Player_State {
 	Idle,           #DONE
 	Jab,            #DONE
 	Jump,           #DONE
-	Jump_W_Spin,    #CUT THE ANIMATION WE NEED PARTICLE EFFECTS INSTEAD ON DOUBLE JUMP
+	Double_Jump,    #FIX SO NOT ONLY WHEN FALLING
 	Roll,           #DONE
-	Run,            #NEEDS TO FIX GLITCH IN FLIP
+	Run,            #DONE
 	Slam,           #DONE
-	Spin_Jump,      #NEEDS REPOSITIONING AND MOVING OF COLLIDER
-	Wall_Slide      #NEEDS EVERYTHING NOTHING HAS BEEN DONE YET
+	Wall_Slide      #FIX UNLIMITED DOUBLE JUMP
 }
 
 #Movement Speed
@@ -28,6 +27,12 @@ var body: CharacterBody2D = $"."
 var animations: AnimatedSprite2D = $animations
 @onready 
 var lantern: PointLight2D = $lantern
+@onready 
+var ray_cast_left: RayCast2D = $ray_cast_left
+@onready 
+var ray_cast_right: RayCast2D = $ray_cast_right
+@onready 
+var double_jump_effect: AnimatedSprite2D = $double_jump_effect
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -47,6 +52,7 @@ var roll = false
 var double_jump_ready = true
 var falling = false
 var slam_ready = false
+var light_on = false
 
 # Handles everything related to changing states
 func change_state(new_state: Player_State) -> void:
@@ -79,8 +85,10 @@ func change_state(new_state: Player_State) -> void:
 			animations.play('Jump')
 			movable = true
 		
-		Player_State.Jump_W_Spin:
+		Player_State.Double_Jump:
+			double_jump_effect.visible = true
 			animations.play('Jump')
+			double_jump_effect.play("jump")
 			body.velocity.y = JUMP_VELOCITY
 			movable = true
 			double_jump = false
@@ -91,10 +99,7 @@ func change_state(new_state: Player_State) -> void:
 			movable = true
 		
 		Player_State.Roll:
-			if animations.flip_h == false:
-				body.velocity.x = ROLL_VELOCITY
-			elif animations.flip_h == true:
-				body.velocity.x = ROLL_VELOCITY * -1
+			body.velocity.x = ROLL_VELOCITY * animations.scale.x
 			animations.play('Roll')
 			movable = true
 			roll = true
@@ -102,15 +107,21 @@ func change_state(new_state: Player_State) -> void:
 		Player_State.Slam:
 			animations.play('Slam')
 			movable = false
-		
-		Player_State.Spin_Jump:
-			animations.play('Spin_Jump')
-			movable = false
-			attacking = true
+			
+		Player_State.Wall_Slide:
+			animations.play('Wall_Slide')
+			double_jump_ready = true
+			if ray_cast_left.is_colliding():
+				animations.scale.x = abs(animations.scale.x)
+			elif ray_cast_right.is_colliding():
+				animations.scale.x = -abs(animations.scale.x)
 
 #Handles Movement
 func _physics_process(delta: float) -> void:
-		# Add the gravity.
+	# Toggle lantern visibility
+	lantern.visible = light_on
+	
+	# Add the gravity.
 	if not body.is_on_floor():
 		body.velocity.y += gravity * delta/2
 		if Input.is_action_just_pressed("Special"):
@@ -126,7 +137,7 @@ func _physics_process(delta: float) -> void:
 		body.velocity.y = JUMP_VELOCITY
 		jump = true
 	
-	if Input.is_action_just_pressed("Jump") and jump == true and not body.is_on_floor() and double_jump_ready == true:
+	if Input.is_action_just_pressed("Jump") and jump == true and not body.is_on_floor() and double_jump_ready == true and body.velocity.y > 0:
 		body.velocity.y = JUMP_VELOCITY
 		double_jump = true
 	
@@ -150,6 +161,8 @@ func _physics_process(delta: float) -> void:
 	
 	if not body.is_on_floor() and body.velocity.y > 0:
 		falling = true
+		# Detect if the player is touching a wall while falling
+
 	
 	#Change state based on movement
 	if direction == 0:
@@ -167,7 +180,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jab"):
 		new_state = Player_State.Jab
 	if Input.is_action_just_pressed("Special"):
-		new_state = Player_State.Spin_Jump
+		light_on = !light_on
 	if Input.is_action_just_pressed("Roll"):
 		new_state = Player_State.Roll
 	if falling == true:
@@ -175,11 +188,18 @@ func _physics_process(delta: float) -> void:
 	if jump == true and falling == false:
 		new_state = Player_State.Jump
 	if double_jump == true:
-		new_state = Player_State.Jump_W_Spin
+		new_state = Player_State.Double_Jump
 	if slam_ready == true and body.is_on_floor():
 		attacking = true
 		slam_ready = false
 		new_state = Player_State.Slam
+	
+	var wall_detected = (ray_cast_left.is_colliding() or ray_cast_right.is_colliding()) and falling and not body.is_on_floor()
+	if wall_detected:
+		new_state = Player_State.Wall_Slide
+
+	if new_state == Player_State.Wall_Slide:
+		body.velocity.y = min(body.velocity.y, 50) # Slow down descent
 	
 	body.move_and_slide()
 	change_state(new_state)
@@ -193,3 +213,9 @@ func _on_animations_animation_finished() -> void:
 	#GET RID OF THIS ONCE DEATH MECHANIC IS ACTIVE
 	if animations.animation == "Death":
 		death = false
+
+
+func _on_double_jump_effect_animation_finished() -> void:
+	if double_jump_effect.animation == "jump":
+		double_jump_effect.visible = false
+	
