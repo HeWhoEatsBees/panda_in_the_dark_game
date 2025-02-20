@@ -200,7 +200,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 gradient = SubResource("Gradient_d3ofq")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.687117, 0.371166)
+fill_to = Vector2(0.822086, 0.291411)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrwti"]
 radius = 27.074
