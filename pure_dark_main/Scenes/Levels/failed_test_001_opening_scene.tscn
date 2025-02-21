@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://ducj7y1th3g16"]
 
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/pause_menu_show.gd" id="1_nqtra"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Menus/pause_menu_show.gd" id="1_nqtra"]
 [ext_resource type="PackedScene" uid="uid://djaydpitupy0v" path="res://pure_dark_main/Scenes/Player/panda.tscn" id="2_agcge"]
 [ext_resource type="PackedScene" uid="uid://cnojuv5qh7qhi" path="res://pure_dark_main/Scenes/Items/hanger_1.tscn" id="3_bo7n5"]
 [ext_resource type="PackedScene" uid="uid://cdqtjf65cohog" path="res://pure_dark_main/Scenes/Items/hanger_2.tscn" id="4_tk1vr"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=96 format=3 uid="uid://djaydpitupy0v"]
+[gd_scene load_steps=97 format=3 uid="uid://djaydpitupy0v"]
 
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/panda.gd" id="1_hyx2b"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Player/panda.gd" id="1_hyx2b"]
 [ext_resource type="Texture2D" uid="uid://b1t6yqgxuwjyr" path="res://pure_dark_main/Assets/characters/Enemies/Pandas/Tiny Panda Good Version/Tiny Panda Good Version 103x33.png" id="2_gtlju"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Components/health.gd" id="2_sh0nq"]
 [ext_resource type="PackedScene" uid="uid://bechm50rn420k" path="res://pure_dark_main/Scenes/Menus/pause_menu.tscn" id="3_fvw6j"]
 [ext_resource type="Texture2D" uid="uid://cg1hs0jsvngho" path="res://pure_dark_main/Assets/FX/Water FX/Water FX-Water 1.png" id="4_kgm5b"]
 
@@ -692,6 +693,9 @@ animations = [{
 
 [node name="panda" type="CharacterBody2D"]
 script = ExtResource("1_hyx2b")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_sh0nq")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -6)

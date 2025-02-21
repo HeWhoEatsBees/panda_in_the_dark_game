@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://c2hj57760dils"]
 
 [ext_resource type="Texture2D" uid="uid://d3q77nbag57dl" path="res://pure_dark_main/Assets/tilesets/Ancient Caves/Tileset and SpriteSheets/Tileset Add on3.png" id="1_ijtre"]
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/pause_menu_show.gd" id="1_ylw08"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Menus/pause_menu_show.gd" id="1_ylw08"]
 [ext_resource type="PackedScene" uid="uid://cpy8bjc0i8a8n" path="res://pure_dark_main/Scenes/Enemies/spider.tscn" id="2_toted"]
 [ext_resource type="Texture2D" uid="uid://dfcgnmvk7pr47" path="res://pure_dark_main/Assets/tilesets/Victorian/background/layer 1.png" id="3_5m8qn"]
 [ext_resource type="PackedScene" uid="uid://djaydpitupy0v" path="res://pure_dark_main/Scenes/Player/panda.tscn" id="3_y2tv5"]

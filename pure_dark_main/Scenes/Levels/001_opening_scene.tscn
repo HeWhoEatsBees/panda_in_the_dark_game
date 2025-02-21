@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://boa67hlw7gl3y"]
 
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/pause_menu_show.gd" id="1_3lclu"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Menus/pause_menu_show.gd" id="1_3lclu"]
 [ext_resource type="Texture2D" uid="uid://dpmdb3b1gmav3" path="res://pure_dark_main/Assets/tilesets/Backgrounds/Caged Swamps/Orange Murky/1 close2.png" id="2_magaa"]
 [ext_resource type="Texture2D" uid="uid://p3xpjdt1ngme" path="res://pure_dark_main/Assets/tilesets/Backgrounds/Caged Swamps/Orange Murky/2 mid2.png" id="3_111qn"]
 [ext_resource type="Texture2D" uid="uid://wnpoaxfi7hu" path="res://pure_dark_main/Assets/tilesets/Backgrounds/Caged Swamps/Orange Murky/3 far mid2.png" id="4_qbtgl"]

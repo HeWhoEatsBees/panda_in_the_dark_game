@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bechm50rn420k"]
 
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/pause_menu.gd" id="1_36bfo"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Menus/pause_menu.gd" id="1_36bfo"]
 [ext_resource type="Texture2D" uid="uid://bkyehp8e6v2kt" path="res://pure_dark_main/Assets/ui/UI - Words/Words With BG/UI - Words1.png" id="2_o6uru"]
 [ext_resource type="Texture2D" uid="uid://0ode32vfdnj1" path="res://pure_dark_main/Assets/ui/UI - Words/Words With BG/UI - Words14.png" id="3_oe60y"]
 
@@ -22,11 +22,13 @@ offset_bottom = 40.0
 layout_mode = 2
 
 [node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 4
 layout_mode = 2
 icon = ExtResource("2_o6uru")
 flat = true
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+light_mask = 4
 layout_mode = 2
 icon = ExtResource("3_oe60y")
 flat = true

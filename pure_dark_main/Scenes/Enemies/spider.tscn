@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://cpy8bjc0i8a8n"]
+[gd_scene load_steps=35 format=3 uid="uid://cpy8bjc0i8a8n"]
 
-[ext_resource type="Script" path="res://pure_dark_main/Scripts/spider.gd" id="1_igt1y"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Enemies/spider.gd" id="1_igt1y"]
 [ext_resource type="Texture2D" uid="uid://coyhe1v2cnvyn" path="res://pure_dark_main/Assets/characters/Enemies/Blinding Spider/blind attack 16x16.png" id="1_kti2t"]
+[ext_resource type="Script" path="res://pure_dark_main/Scripts/Components/health.gd" id="2_5s1ly"]
 [ext_resource type="Texture2D" uid="uid://3vdf5gbse56s" path="res://pure_dark_main/Assets/characters/Enemies/Blinding Spider/damaged 16x16.png" id="2_xxo2y"]
 [ext_resource type="Texture2D" uid="uid://cmf6apho8o88o" path="res://pure_dark_main/Assets/characters/Enemies/Blinding Spider/deah 16x16.png" id="3_qn132"]
 [ext_resource type="Texture2D" uid="uid://3537ni7nr80u" path="res://pure_dark_main/Assets/characters/Enemies/Blinding Spider/prep blind attack 16x16.png" id="4_qjlfy"]
@@ -207,6 +208,9 @@ radius = 27.074
 
 [node name="spider" type="CharacterBody2D"]
 script = ExtResource("1_igt1y")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_5s1ly")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, 4)
