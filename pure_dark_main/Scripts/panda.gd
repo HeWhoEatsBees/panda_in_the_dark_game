@@ -8,7 +8,7 @@ enum Player_State {
 	Idle,           #DONE
 	Jab,            #DONE
 	Jump,           #DONE
-	Double_Jump,    #FIX SO NOT ONLY WHEN FALLING
+	Double_Jump,    #DONE
 	Roll,           #DONE
 	Run,            #DONE
 	Slam,           #DONE
@@ -131,13 +131,14 @@ func _physics_process(delta: float) -> void:
 		double_jump = false
 		double_jump_ready = true
 		falling = false
+		double_jump_ready = true
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and body.is_on_floor():
 		body.velocity.y = JUMP_VELOCITY
 		jump = true
 	
-	if Input.is_action_just_pressed("Jump") and jump == true and not body.is_on_floor() and double_jump_ready == true and body.velocity.y > 0:
+	if Input.is_action_just_pressed("Jump") and jump == true and not body.is_on_floor() and double_jump_ready == true:
 		body.velocity.y = JUMP_VELOCITY
 		double_jump = true
 	

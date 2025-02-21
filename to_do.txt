@@ -1,0 +1,19 @@
+FINISH ALPHA PHASE
+
+Health System
+Hitboxes and Damage
+Interact with NPCs
+Create Water Level
+Save Game System
+Create Other Enemies
+
+
+START BETA PHASE
+
+Create Map For World
+
+Create Actual Levels
+ - Caged Swamp
+ - Ancient Caverns
+ - Victorian City
+ - etc
